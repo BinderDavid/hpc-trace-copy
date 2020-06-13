@@ -1,0 +1,100 @@
+<html>
+  <HEAD>
+    <LINK REL ="stylesheet" HREF ="default.css" TYPE ="text/css"></LINK>
+  </HEAD>
+  <body id="scratch">
+    <FIELDSET>
+      <LEGEND>Status</LEGEND>
+      <table border=0 style="margin-left: 10px">
+	<tr>
+	  <td class="rhs" align="right">Module : </td>
+	  <td id="module"></td>
+	</tr>
+	<tr>
+	  <td class="rhs" align="right">Location : </td>
+	  <td id="location"></td>
+	</tr>
+	<tr>
+	  <td class="rhs" align="right">Event : </td>
+	  <td id="event"></td>
+	</tr>
+	<tr>
+	  <td class="rhs" align="right">Counter : </td>
+	  <td id="counter"></td>
+	</tr>
+	<tr>
+	  <td class="rhs" align="right">Thread&nbsp;#&nbsp;:&nbsp;</td>
+	  <td id="thread_no"></td>
+	</tr>
+	<tr>
+	  <td colspan="2" 
+	      id="progress" 
+	      style="visibility: hidden" 
+	      align="center">
+	    <img src="progress.gif" width="100px"/>
+	  </td>
+	</tr>
+      </table>
+    </FIELDSET>
+    <BR/>
+    <FIELDSET>
+      <LEGEND>View Module</LEGEND>
+      <SELECT ID="allmodules" NAME="viewmodule" style="width: 100%"
+	      onChange="top.status.viewModule(document.getElementById('allmodules').value)">
+	    </SELECT>
+    </FIELDSET>
+    <BR/>
+    <FIELDSET style="background: #f0f0f0">
+      <LEGEND>Breakpoints</LEGEND>
+      <table width="100%" border=0 id="Breakpoints" style="border-collapse: collapse">
+      </table>
+    </FIELDSET>
+    <BR/>
+    <FIELDSET>
+      <LEGEND>Create Breakpoints</LEGEND>
+
+      <table width="100%" style="padding: 0px; margin: 0px" id="CreateBreakpoints">
+	<tr>
+	  <td class="rhs" align="left" colspan="2">Stop at ...</td>
+	  <td></td>
+	</tr>
+	<tr id="AllExceptions">
+	  <td class="rhs" align="right">All Exceptions</td>
+	  <td><INPUT type="CHECKBOX" 
+		     onChange="breakpoint('AllExceptions',this.checked);"
+		     id="AllExceptions_checkbox"
+		     /></td>
+	</tr>
+	<tr id="ThreadChange">
+	  <td class="rhs" align="right">All Thread Changes</td>
+	  <td><INPUT type="CHECKBOX" 
+		     onChange="breakpoint('ThreadChange',this.checked)"
+		     id="ThreadChange_checkbox"
+		     /></td>
+	</tr>
+	<tr id="ThreadTermination">
+	  <td class="rhs" align="right">All Thread Terminations</td>
+	  <td><INPUT type="CHECKBOX"
+		     onChange="breakpoint('ThreadTermination',this.checked)"
+		     id="ThreadTermination_checkbox"
+		     /></td>
+	</tr>
+	<tr>
+	  <td class="rhs" align="right" colspan="2">
+	    Thread #
+	    <input id="countby" name="countby" type="text" size=6 value=""
+		   onKeyPress="numberEnterFrom(this,event,'ThreadChangeTo','tid')">
+	  </td>
+	</tr>
+	<tr>
+	  <td class="rhs" align="right"  colspan="2">
+	    Counter #
+	    <input id="bp_count" name="bp_count" type="text" size=8 value="" 
+		   onKeyPress="numberEnterFrom(this,event,'CounterAt','count')">
+	  </td>
+	</tr>
+    </FIELDSET>
+    <SCRIPT TYPE ="text/javascript" src="/ajax.js"/>
+    <SCRIPT TYPE ="text/javascript" src="/default.js"/>
+  </body>
+</html>

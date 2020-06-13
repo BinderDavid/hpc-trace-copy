@@ -1,0 +1,6 @@
+span.lineno { color: white; background: #aaaaaa; border-right: solid white 12px }
+span.spaces { background: white; border: none }
+.cap { font-size: 140% }
+td.logo { letter-spacing: 1.2px }
+td.rhs { font-weight: bold }
+input.hdbutton { height: 40px }
